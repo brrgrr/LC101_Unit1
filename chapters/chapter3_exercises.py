@@ -41,19 +41,19 @@ print("The temperature is", current_temperature_1)
 click_2 = 49
 current_temperature_2 = (click_2 % 50) + 40
 print("The temperature is", current_temperature_2)
-                       
+
 click_3 = 74
 current_temperature_3 = (click_3 % 50) + 40
 print("The temperature is", current_temperature_3)
-                       
+
 click_4 = 51
 current_temperature_4 = (click_4 % 50) + 40
 print("The temperature is", current_temperature_4)
-                       
+
 click_5 = -1
 current_temperature_5 = (click_5 % 50) + 40
 print("The temperature is", current_temperature_5)
-                       
+
 click_6 = 200
 current_temperature_6 = (click_6 % 50) + 40
 print("The temperature is", current_temperature_6)

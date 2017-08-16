@@ -10,7 +10,7 @@ def main():
 
 if __name__ == "__main__":
     main()
-	
+
 #2
 import random
 import turtle
@@ -56,10 +56,10 @@ right_bound = wn.window_width() / 2
 top_bound = wn.window_height() / 2
 bottom_bound = -wn.window_height() / 2
 
-def random_start(t):   
+def random_start(t):
     t.ht()
     t.up()
-    t.goto(random.randrange(left_bound, right_bound), 
+    t.goto(random.randrange(left_bound, right_bound),
            random.randrange(bottom_bound, top_bound))
     t.seth(random.randrange(0,360,90))
     t.down()
@@ -73,7 +73,7 @@ def walk(t):
         t.right(90)
     t.forward(50)
 
-def is_in_screen(t):    
+def is_in_screen(t):
     turtle_x = t.xcor()
     turtle_y = t.ycor()
 
@@ -88,13 +88,13 @@ def is_in_screen(t):
 def main():
     ben = turtle.Turtle()
     liz = turtle.Turtle()
-    
+
     random_start(ben)
     random_start(liz)
-    
+
     ben.color('green')
     liz.color('yellow')
-   
+
     while is_in_screen(ben) and is_in_screen(liz):
         walk(ben)
         walk(liz)
@@ -120,14 +120,14 @@ def random_start(t):
     t.speed(0)
     t.ht()
     t.up()
-    t.goto(random.randrange(left_bound, right_bound), 
+    t.goto(random.randrange(left_bound, right_bound),
            random.randrange(bottom_bound, top_bound))
     t.seth(random.randrange(0,360,90))
     t.down()
     t.st()
 
 def walk(t1, t2):
-    
+
     for t in [t1,t2]:
         t.left(random.choice([-90,90]))
 
@@ -135,9 +135,9 @@ def walk(t1, t2):
             t.forward(2)
             if is_bounce(t1,t2):
                 t.seth(t.heading()+180)
-            
-            
-            
+
+
+
 
 
 def is_in_screen(t):
@@ -157,34 +157,34 @@ def is_bounce(t1, t2):
     for t in [t1,t2]:
         turtle_x = t.xcor()
         turtle_y = t.ycor()
-        
-        if min( abs(turtle_x - right_bound), abs(turtle_x - left_bound), 
+
+        if min( abs(turtle_x - right_bound), abs(turtle_x - left_bound),
            abs(turtle_y - top_bound), abs(turtle_y - bottom_bound)) < 5:
             bounce = True
-        
+
     if t1.distance(t2) < 5:
         bounce = True
-        
+
     return bounce
 
 
 def main():
     ben = turtle.Turtle()
     liz = turtle.Turtle()
-    
+
     random_start(ben)
     random_start(liz)
-    
+
     ben.color('green')
     liz.color('yellow')
-   
+
     while is_in_screen(ben) and is_in_screen(liz):
         walk(ben,liz)
     else:
         ben.home()
         liz.home()
-        
-        
+
+
     wn.exitonclick()
 
 if __name__ == "__main__":
@@ -214,8 +214,8 @@ def main():
                 break
             else:
                 continue
-                
-        
+
+
 
 if __name__ == "__main__":
     main()
@@ -252,7 +252,7 @@ def grayscale(p):
     gray = (red + green + blue) / 3
     new_pixel = image.Pixel(gray, gray, gray)
     return new_pixel
-	
+
 img = image.Image("luther.jpg")
 new_img = image.EmptyImage(img.getWidth(), img.getHeight())
 win = image.ImageWin(img.getWidth(), img.getHeight())
@@ -282,7 +282,7 @@ def black_white(p):
         bw = 0
     else:
         bw = 255
-    new_pixel = image.Pixel(bw, bw, bw)    
+    new_pixel = image.Pixel(bw, bw, bw)
     return new_pixel
 
 img = image.Image("luther.jpg")
@@ -308,8 +308,8 @@ def sepia(p):
     B = p.getBlue()
     new_r = min(int(R * 0.393 + G * 0.769 + B * 0.189),255)
     new_g = min(int(R * 0.349 + G * 0.686 + B * 0.168),255)
-    new_b = min(int(R * 0.272 + G * 0.534 + B * 0.131),255)       
-    
+    new_b = min(int(R * 0.272 + G * 0.534 + B * 0.131),255)
+
     new_pixel = image.Pixel(new_r, new_g, new_b)
     return new_pixel
 
@@ -327,7 +327,36 @@ for col in range(img.getWidth()):
 new_img.draw(win)
 win.exitonclick()
 
+#10
+import image
 
+def double(old_image):
+    old_w = old_image.getWidth()
+    old_h = old_image.getHeight()
+
+    new_img = image.EmptyImage(old_w * 2, old_h * 2)
+    for row in range(old_h):
+        for col in range(old_w):
+            old_pixel = old_image.getPixel(col, row)
+
+            new_img.setPixel(2*col, 2*row, old_pixel)
+            new_img.setPixel(2*col+1, 2*row, old_pixel)
+            new_img.setPixel(2*col, 2*row+1, old_pixel)
+            new_img.setPixel(2*col+1, 2*row+1, old_pixel)
+
+    return new_img
+
+def main():
+    img = image.Image("luther.jpg")
+    win = image.ImageWin(img.getWidth() * 2, img.getHeight() * 2)
+
+    big_img = double(img)
+    big_img.draw(win)
+
+    win.exitonclick()
+
+if __name__ == "__main__":
+     main()
 
 #Weekly Graded Assignment
 def course_grader(test_scores):
@@ -340,9 +369,9 @@ def course_grader(test_scores):
     if avg_score < 70 or min(test_scores) < 50:
         message = 'fail'
     elif avg_score >= 70 and min(test_scores) > 50:
-        message = 'pass'   
+        message = 'pass'
     return message
-    
+
 
 def main():
     print(course_grader([100,75,45]))     # "fail"

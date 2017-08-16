@@ -112,7 +112,7 @@ tess.right(90)     # turn south
 tess.left(3600)    # 10 full spins, still south
 tess.right(-90)    # turn east
 tess.left(3600)    # 10 full spins, still east
-tess.forward(-100) # negative forward means backwards 
+tess.forward(-100) # negative forward means backwards
 
 
 #9
@@ -171,7 +171,7 @@ for degree in range(360):
     axl.color(random.randrange(0,256),random.randrange(0,256),random.randrange(0,256))
     axl.forward(degree//2)
     axl.right(degree)
-    
+
 
 wn.exitonclick()
 
@@ -195,7 +195,7 @@ sprite.speed(10)
 legs = int(input("How many legs should this sprite have?"))
 angle = 360 / legs
 
-for i in range(legs): 
+for i in range(legs):
     sprite.left(angle)
     sprite.forward(100)
     sprite.dot()
@@ -238,7 +238,7 @@ nums = [12, 10, 32, 3, 66, 17, 42, 99, 20]
 
 for a in nums:
     print(a)
-    
+
 for b in nums:
     print("The square of", b, "is", (b**2))
 
