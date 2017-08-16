@@ -1,1 +1,1 @@
-# think_python
+# LC101 Summer 2017 - North County
