@@ -71,6 +71,12 @@ word9 = "dull"
 word10 = "boy."
 print(word1, word2, word3, word4, word5, word6, word7, word8, word9, word10)
 
+sentence = "All work and no play makes Jack a dull boy."
+lst = sent.split()
+for word in lst:
+    print(word + " ", end="")
+
+print("\n"+" ".join(lst))
 # 5
 """
 Add parenthesis to the expression 6 * 1 - 2 to change its value from 4 to -6.
