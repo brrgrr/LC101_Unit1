@@ -9,7 +9,7 @@ class Post:
         self.likes += 1
 
     def __str__(self):
-        return self.title + " by " + self.author
+        return '{} by {}'.format(self.title, self.author)
 
 
 class VideoPost(Post):
@@ -22,7 +22,7 @@ class VideoPost(Post):
         self.plays += 1
 
     def __str__(self):
-        return self.title + " played " + str(self.plays) + " times"
+        return '{} played {} times'.format(self.title, str(self.plays))
 
 
 class ImagePost(Post):
@@ -31,7 +31,7 @@ class ImagePost(Post):
         self.file_name = file_name
 
     def __str__(self):
-        return self.title + " by " + self.author
+        return '{} by {}'.format(self.title, self.author)
 
 class LinkPost(Post):
     def __init__(self, title, author, url):
@@ -43,7 +43,7 @@ class LinkPost(Post):
         self.clicks += 1
 
     def __str__(self):
-        return self.title + ": " + str(self.url) + " (clicked " + str(self.clicks) + " times)"
+        return '{}: {} (clicked {} times)'.format(self.title, str(self.url), str(self.clicks))
 
 plain_post = Post("10 Best Albums of 2016", "Chris Bay", "1. Little Scream - Cult Following 2. ...")
 vid_post = VideoPost("Little Scream - Love As a Weapon", "Chris Bay", "https://youtu.be/Tq4Vw4MB6eA")
